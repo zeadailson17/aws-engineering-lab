@@ -37,7 +37,7 @@ venv/
 htmlcov/
 
 # Docker and local data
-data/
+/data/
 
 # IDE
 .idea/

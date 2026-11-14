@@ -1,0 +1,16 @@
+services:
+  floci:
+    image: floci/floci:latest
+    container_name: aws-engineering-lab-floci
+
+    ports:
+      - "4566:4566"
+
+    volumes:
+      - ../data:/app/data
+
+    environment:
+      FLOCI_STORAGE_MODE: persistent
+      FLOCI_STORAGE_PERSISTENT_PATH: /app/data
+
+    restart: unless-stopped
