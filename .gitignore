@@ -1,0 +1,49 @@
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+.terraform.tfstate.lock.info
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Keep .terraform.lock.hcl versioned
+
+# AWS credentials
+.aws/
+*.pem
+*.key
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Local emulator data
+.local-data/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Docker and local data
+data/
+
+# IDE
+.idea/
+.vscode/
+
+# Operating system
+.DS_Store
+Thumbs.db
+
