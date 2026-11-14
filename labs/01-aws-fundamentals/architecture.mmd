@@ -1,0 +1,45 @@
+flowchart TB
+    U[Users in Brazil] --> DNS[DNS]
+
+    subgraph REGION["AWS Region: sa-east-1 — São Paulo"]
+        subgraph AZA["Availability Zone A"]
+            ALBA[Application Load Balancer node]
+            APPA[Application instance / task]
+            DBA[Database subnet]
+            NATA[NAT Gateway — optional]
+        end
+
+        subgraph AZB["Availability Zone B"]
+            ALBB[Application Load Balancer node]
+            APPB[Application instance / task]
+            DBB[Database subnet / standby placement]
+            NATB[NAT Gateway — optional]
+        end
+
+        ALB["Regional Application Load Balancer"]
+        RDS["Amazon RDS Multi-AZ deployment"]
+        S3["Amazon S3 bucket — regional service"]
+        VPCE["S3 Gateway VPC Endpoint"]
+
+        DNS --> ALB
+        ALB --> ALBA
+        ALB --> ALBB
+        ALBA --> APPA
+        ALBB --> APPB
+        APPA --> RDS
+        APPB --> RDS
+        DBA --- RDS
+        DBB --- RDS
+        APPA --> VPCE
+        APPB --> VPCE
+        VPCE --> S3
+        APPA -. outbound when required .-> NATA
+        APPB -. outbound when required .-> NATB
+    end
+
+    classDef public fill:#e8f2ff,stroke:#3973ac,color:#142b43
+    classDef private fill:#eaf7ed,stroke:#438a54,color:#183b23
+    classDef data fill:#fff3dc,stroke:#b47b21,color:#4b3410
+    class ALBA,ALBB,ALB public
+    class APPA,APPB,NATA,NATB private
+    class DBA,DBB,RDS,S3,VPCE data

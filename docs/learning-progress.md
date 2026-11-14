@@ -6,7 +6,7 @@
 | Module | Topic | Status |
 |---|---|---|
 | 00 | Environment Setup | In Progress |
-| 01 | AWS Fundamentals | Planned |
+| 01 | AWS Fundamentals | In Progress |
 | 02 | S3 with Terraform | Planned |
 | 03 | IAM and Security | Planned |
 | 04 | VPC and Networking | Planned |
@@ -21,9 +21,9 @@
 ## Current Skills
 
 - [x] Git fundamentals
-- [ ] Docker and Compose
-- [ ] Floci
-- [ ] AWS CLI
+- [x] Docker and Compose
+- [x] Floci
+- [x] AWS CLI
 - [ ] Terraform
 - [ ] Python
 - [ ] CI/CD
@@ -33,3 +33,34 @@
 Each completed laboratory must include
 implementation, validation, troubleshooting
 and technical documentation.
+
+## Laboratory Progress
+
+### Lab 00 — Environment Setup
+
+Status: In Progress
+
+Completed:
+- [x] Docker Compose environment configured.
+- [x] Floci container running and healthy.
+- [x] AWS CLI connected to local Floci endpoint.
+- [x] S3 bucket created.
+- [x] Object uploaded and listed.
+
+Pending:
+- [ ] Confirm resource cleanup.
+- [ ] Final documentation review.
+
+### Lab 01 — AWS Fundamentals
+
+Status: In Progress
+
+Topics:
+- [x] Initial documentation created.
+- [x] AWS global infrastructure diagram created.
+- [ ] Understand Regions and Availability Zones.
+- [ ] Understand Availability Zone IDs.
+- [ ] Distinguish global, regional and zonal resources.
+- [ ] Explain Multi-AZ architecture.
+- [ ] Complete architecture challenge.
+- [ ] Complete knowledge assessment.
