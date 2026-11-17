@@ -53,3 +53,26 @@ For workloads requiring regional disaster recovery, I would evaluate a secondary
 My approach is to prioritize a highly available Multi-AZ architecture in `sa-east-1`, ensuring that critical components are distributed across independent Availability Zones.
 
 A Multi-Region strategy would be considered when business continuity, regulatory requirements, or regional disaster recovery objectives justify the additional complexity and operational costs.
+
+## 5. Multi-AZ Failure Scenario
+
+### Initial Answer
+
+The application continues serving requests through AZ B,
+while RDS performs an automatic failover to the standby instance.
+
+### Technical Assessment
+
+The primary database failover can temporarily interrupt
+existing database connections.
+
+The application must re-establish connections using
+retry mechanisms, exponential backoff and DNS refresh.
+
+### Key Learnings
+
+- Multi-AZ does not mean zero downtime.
+- Application connections must recover after failover.
+- Remaining AZ capacity must support the workload.
+- Database recovery and application recovery are different.
+- High availability must be validated through failure testing.
